@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h1 class="text-center">New Game</h1>
+
+  <div class="the-grid d-flex justify-content-around mt-5">
+    <% @letters.each do |letter|%>
+    <div class="btn-lg btn-secondary">
+      <%= letter%>
+    </div>
+    <% end %>
+  </div>
+
+  <form action="score" method="POST" class="d-flex justify-content-center">
+    <%=  hidden_field_tag 'grid', @letters.join %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="input-group mt-5" style="width: 300px">
+      <input type="text" class="form-control" name="answer" placeholder="Your answer">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Play</button>
+      </div>
+    </div>
+  </form>
+
+</div>
